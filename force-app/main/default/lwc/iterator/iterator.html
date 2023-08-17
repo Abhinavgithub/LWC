@@ -1,0 +1,33 @@
+<!--
+  @description       : Example of Iteration in LWC
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 08-17-2023
+  @last modified by  : Abhinav Singh
+-->
+<template>
+  <lightning-card icon-name="standard:account" variant="base">
+    <div slot="title">for:each</div>
+    <div>
+      <ul class="slds-var-m-around_medium">
+        <template for:each={contacts} for:item="contact" for:index="index">
+          <li key={contact.Id}>{index} {contact.Name}, {contact.Title}</li>
+        </template>
+      </ul>
+    </div>
+  </lightning-card>
+  <lightning-card icon-name="standard:account" variant="base">
+    <div slot="title">Iterator</div>
+    <div>
+      <ul class="slds-var-m-around_medium">
+        <template iterator:it={contacts}>
+          <li key={it.Id}>
+            <div if:true={it.first} class="list-first"></div>
+            {it.value.Name}, {it.value.Title}
+            <div if:true={it.last} class="list-last"></div>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </lightning-card>
+</template>

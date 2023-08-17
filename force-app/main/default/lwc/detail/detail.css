@@ -1,6 +1,6 @@
-ebody{
-  margin: 0;
-} 
+ebody {
+  margin: spacingNone;
+}
 .price {
   color: green;
   font-weight: bold;

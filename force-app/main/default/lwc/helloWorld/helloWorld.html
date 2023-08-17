@@ -1,0 +1,32 @@
+<!--
+  @description       : Hello World LWC 
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 08-03-2023
+  @last modified by  : Abhinav Singh
+-->
+<template>
+  <lightning-card title="Hello World!">
+    <lightning-button label="New" slot="actions"></lightning-button>
+    <p class="slds-var-p-horizontal_small">Hello, {name}</p>
+    <div class="slds-form-element">
+      <label
+        class="slds-var-p-horizontal_small slds-form-element__label"
+        for="text-input-id-46"
+        >Enter Your Name</label
+      >
+      <div class="slds-var-p-horizontal_small slds-form-element__control">
+        <input
+          type="text"
+          id="text-input-id-46"
+          value={name}
+          onchange={nameChange}
+          placeholder="Placeholder text…"
+          required=""
+          class="slds-input"
+        />
+      </div>
+    </div>
+    <p slot="footer">Card Footer</p>
+  </lightning-card>
+</template>

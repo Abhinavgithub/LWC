@@ -1,0 +1,51 @@
+<!--
+  @description       : Example of using lwc if-else
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 08-17-2023
+  @last modified by  : Abhinav Singh
+-->
+<template>
+  <lightning-card variant="Narrow" title="lwc-if-else">
+    <h2 class="slds-text-heading_small slds-var-m-bottom_small">
+      Click the buttons to activate the <code>onclick</code> handler and view
+      the image on the click of the button.
+    </h2>
+
+    <template lwc:if={toShow}>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8rTw8CuzFJwi9pIW_UH3KKW0Ac4ifvd2ruA&usqp=CAU"
+        alt="BTS"
+        height="200px"
+        width="200px"
+        style="padding-bottom: 10px"
+      />
+    </template>
+    <template lwc:else>
+      <img
+        src="https://images.yourstory.com/cs/210/a0bad530ce5d11e9a3fb4360e4b9139b/YSlife3-1666360894535.png?w=1152&fm=auto&ar=2:1&mode=crop&crop=faces"
+        alt="BTS"
+        height="200px"
+        width="200px"
+        style="padding-bottom: 10px"
+      />
+    </template>
+
+    <div>
+      <lightning-button
+        label="Click to show"
+        variant="brand"
+        onclick={ShowImage}
+        class="slds-var-m-left_x-small"
+        disabled={disableShowButton}
+      ></lightning-button>
+      <lightning-button
+        label="Click to hide"
+        variant="brand"
+        onclick={HideImage}
+        class="slds-var-m-left_x-small"
+        disabled={disableHideButton}
+      ></lightning-button>
+    </div>
+  </lightning-card>
+</template>
