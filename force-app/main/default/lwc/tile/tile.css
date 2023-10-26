@@ -1,35 +1,34 @@
 .container {
-    border: 1px rgb(168, 166, 166) solid;
-    border-radius: 5px;
-    background-color: white;
-    margin:5px;
-    padding: 2px;
-    max-width: 110px;
-    display: flex;
-    
+  border: 1px rgb(168, 166, 166) solid;
+  border-radius: 5px;
+  background-color: white;
+  margin: 5px;
+  padding: 2px;
+  max-width: 110px;
+  display: flex;
 }
 
 .title {
-    font-weight: strong;
+  font-weight: strong;
 }
 
 .product-img {
-    max-width: 100px;
+  max-width: 100px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:link {
-    color: rgb(159, 159, 159);
+  color: rgb(159, 159, 159);
 }
 a:visited {
-    color: green;
+  color: green;
 }
 a:hover {
-    color: hotpink;
+  color: hotpink;
 }
 a:active {
-    color: blue;
+  color: blue;
 }

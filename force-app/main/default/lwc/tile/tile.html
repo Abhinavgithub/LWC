@@ -1,8 +1,16 @@
+<!-- sldsValidatorIgnore -->
+<!--
+  @description       : 
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 10-02-2023
+  @last modified by  : Abhinav Singh
+-->
 <template>
-    <div class="container">
-        <a onclick={tileClick}>
-            <div class="title">{product.fields.Name.value}</div>
-            <img class="product-img" src={product.fields.Picture_URL__c.value}></img>
-        </a>
-    </div>
+  <div class="container">
+    <a onclick={tileClick}>
+      <div class="title">{product.fields.Name.value}</div>
+      <img class="product-img" src={product.fields.Picture_URL__c.value} />
+    </a>
+  </div>
 </template>

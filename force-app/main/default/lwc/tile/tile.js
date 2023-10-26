@@ -1,14 +1,14 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement, api } from "lwc";
 
 export default class Tile extends LightningElement {
-    @api product;
+  @api product;
 
-    tileClick() {
-        const event = new CustomEvent('tileclick', {
-            // detail contains only primitives
-            detail: this.product.fields.Id.value
-        });
-        // Fire the event from c-tile
-        this.dispatchEvent(event);
-    }
+  tileClick() {
+    const event = new CustomEvent("tileclick", {
+      // detail contains only primitives
+      detail: this.product.fields.Id.value
+    });
+    // Fire the event from c-tile
+    this.dispatchEvent(event);
+  }
 }

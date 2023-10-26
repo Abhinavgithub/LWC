@@ -1,13 +1,14 @@
 body {
   margin: 0;
-} 
-.wrapper{
+}
+.wrapper {
   min-height: 100vh;
   background: #ccc;
   display: flex;
   flex-direction: column;
 }
-.header, .footer{
+.header,
+.footer {
   height: 50px;
   background: rgb(255, 255, 255);
   color: rgb(46, 46, 46);
@@ -18,23 +19,23 @@ body {
   display: flex;
   flex: 1;
   background: #999;
-  color: #000; 
+  color: #000;
 }
-.columns{
+.columns {
   display: flex;
-  flex:1;
+  flex: 1;
 }
-.main{
+.main {
   flex: 1;
   order: 2;
   background: #eee;
 }
-.sidebar-first{
+.sidebar-first {
   width: 20%;
   background: #ccc;
   order: 1;
 }
-.sidebar-second{ 
+.sidebar-second {
   width: 30%;
   order: 3;
   background: #ddd;

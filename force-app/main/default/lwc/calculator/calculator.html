@@ -1,0 +1,77 @@
+<!--
+  @description       : Creating calculator using LWC
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 08-17-2023
+  @last modified by  : Abhinav Singh
+-->
+<template>
+  <div class="slds-var-p-around_medium">
+    <lightning-card icon-name="standard:account" variant="base">
+      <div slot="title">Calculator</div>
+      <div slot="footer">Made with LWC &hearts;</div>
+      <div class="slds-var-p-around_medium">
+        <lightning-input
+          disabled={disabled}
+          name="number1"
+          type="number"
+          label="Enter First Number"
+          onchange={handleChangeEvent}
+          class="slds-var-m-left_x-small"
+          placeholder="type here..."
+        >
+        </lightning-input>
+        <lightning-input
+          disabled={disabled}
+          name="number2"
+          type="number"
+          label="Enter Second Number"
+          onchange={handleChangeEvent}
+          class="slds-var-m-left_x-small"
+          placeholder="type here..."
+        >
+        </lightning-input>
+      </div>
+      <div class="slds-var-p-around_medium">
+        <lightning-button
+          variant="brand"
+          label="Sum"
+          onclick={sum}
+          class="slds-var-m-left_x-small"
+        ></lightning-button>
+        <lightning-button
+          variant="brand"
+          label="Difference"
+          onclick={difference}
+          class="slds-var-m-left_x-small"
+        ></lightning-button>
+        <lightning-button
+          variant="brand"
+          label="Product"
+          onclick={product}
+          class="slds-var-m-left_x-small"
+        ></lightning-button>
+        <lightning-button
+          variant="brand"
+          label="Division"
+          onclick={division}
+          class="slds-var-m-left_x-small"
+        ></lightning-button>
+      </div>
+
+      <div class="slds-var-p-around_medium">
+        <lightning-tile label="Result">
+          <p class="slds-truncate">{result}</p>
+        </lightning-tile>
+      </div>
+      <div class="slds-var-p-around_medium">
+        <lightning-button
+          variant="brand"
+          label="Reset"
+          onclick={reset}
+          class="slds-var-m-left_x-small"
+        ></lightning-button>
+      </div>
+    </lightning-card>
+  </div>
+</template>
