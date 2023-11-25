@@ -1,0 +1,61 @@
+<!-- sldsValidatorIgnore -->
+<!--
+  @description       : Creating lightning tabs
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 11-26-2023
+  @last modified by  : Abhinav Singh
+-->
+<template>
+  <lightning-card
+    icon-name="standard:account"
+    variant="base"
+    class="slds-m-left_xx-small"
+  >
+    <div slot="title">Lightning Tab with lwc datatable</div>
+    <div>
+      <lightning-tabset>
+        <lightning-tab label="Germany" onactive={handleClick} value="Germany">
+          <template if:true={showTabGermany}>
+            <div style="height: 300px">
+              <lightning-datatable
+                key-field="id"
+                data={accounts}
+                columns={columns}
+              >
+              </lightning-datatable>
+            </div>
+          </template>
+        </lightning-tab>
+        <lightning-tab
+          label="United States"
+          onactive={handleClick}
+          value="United States"
+        >
+          <template if:true={showTabUnitedStates}>
+            <div style="height: 300px">
+              <lightning-datatable
+                key-field="id"
+                data={accounts}
+                columns={columns}
+              >
+              </lightning-datatable>
+            </div>
+          </template>
+        </lightning-tab>
+        <lightning-tab label="Italy" onactive={handleClick} value="Italy">
+          <template if:true={showTabItaly}>
+            <div style="height: 300px">
+              <lightning-datatable
+                key-field="id"
+                data={accounts}
+                columns={columns}
+              >
+              </lightning-datatable>
+            </div>
+          </template>
+        </lightning-tab>
+      </lightning-tabset>
+    </div>
+  </lightning-card>
+</template>

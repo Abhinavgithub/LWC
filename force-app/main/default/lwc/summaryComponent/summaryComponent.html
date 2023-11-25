@@ -1,0 +1,30 @@
+<!-- sldsValidatorIgnore -->
+<!--
+  @description       : Created custom summmary detail component using SLDS
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 11-06-2023
+  @last modified by  : Abhinav Singh
+-->
+
+<!-- chevrondown | chevronright-->
+<template>
+  <div class={ClassCSS}>
+    <lightning-button-icon
+      class="slds-m-left_xx-small"
+      variant="bare"
+      onclick={handleClick}
+      icon-name={SummaryIcon}
+    ></lightning-button-icon>
+    <div>
+      <div class="slds-summary-detail__title">
+        <h3 class="slds-text-heading_small slds-truncate" title="summary title">
+          {title}
+        </h3>
+      </div>
+      <div class="slds-summary-detail__content" id="expando-unique-id">
+        <p>{summary}</p>
+      </div>
+    </div>
+  </div>
+</template>

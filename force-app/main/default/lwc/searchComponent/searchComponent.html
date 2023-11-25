@@ -2,24 +2,19 @@
   @description       : Creating search component for the custom lookup component
   @author            : Abhinav Singh
   @group             : 
-  @last modified on  : 10-25-2023
+  @last modified on  : 10-26-2023
   @last modified by  : Abhinav Singh
 -->
 <template>
-  <div class="slds-var-p-around_medium">
-    <lightning-card icon-name="standard:account" variant="base">
-      <div slot="title">Custom Lookup</div>
-      <div>
-        <lightning-input
-          type="text"
-          label="Enter search term"
-          is-loading="true"
-          placeholder="Type here to lookup..."
-          value={searchTerm}
-          onchange={handleChange}
-          class="slds-var-p-around_medium"
-        ></lightning-input>
-      </div>
-    </lightning-card>
+  <div>
+    <lightning-input
+      type="text"
+      label="Enter search term"
+      is-loading="true"
+      placeholder="Type here to lookup..."
+      value={searchTerm}
+      onchange={handleChange}
+      class="slds-var-p-around_medium"
+    ></lightning-input>
   </div>
 </template>

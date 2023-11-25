@@ -1,0 +1,20 @@
+<!--
+  @description       : Custom Lookup component
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 11-06-2023
+  @last modified by  : Abhinav Singh
+-->
+<template>
+  <div class="slds-var-p-around_medium">
+    <lightning-card
+      class="slds-var-p-around_medium"
+      icon-name="standard:account"
+      variant="base"
+    >
+      <div>
+        <c-search-component onsearch={handleSearch}></c-search-component>
+      </div>
+    </lightning-card>
+  </div>
+</template>
