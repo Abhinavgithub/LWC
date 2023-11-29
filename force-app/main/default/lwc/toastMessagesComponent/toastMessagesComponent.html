@@ -1,0 +1,48 @@
+<!--
+  @description       : Toast Notifications
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 11-29-2023
+  @last modified by  : Abhinav Singh
+-->
+<template>
+  <lightning-card
+    icon-name="utility:user"
+    variant="base"
+    title="Misc Toast Notifications"
+  >
+    <div class="slds-var-m-around_medium">
+      <lightning-input
+        type="text"
+        label="Enter the Title"
+        onchange={titleChange}
+        value={title}
+      ></lightning-input>
+      <lightning-input
+        type="text"
+        label="Enter the toast message"
+        onchange={messageChange}
+        value={message}
+      ></lightning-input>
+      <lightning-combobox
+        name="Toast Variants"
+        label="Toast Notifcation Type"
+        value={variant}
+        placeholder="Select type of notification"
+        options={options}
+        onchange={variantChange}
+        required
+      ></lightning-combobox>
+      <p class="slds-var-m-vertical_small">
+        <lightning-button
+          variant="brand"
+          label="Show Notification"
+          onclick={showNotification}
+        ></lightning-button>
+      </p>
+      <c-view-source source="lwc/toastMessagesComponent" slot="footer">
+        Display a toast notification.
+      </c-view-source>
+    </div>
+  </lightning-card>
+</template>
