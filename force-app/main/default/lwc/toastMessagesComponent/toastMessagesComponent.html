@@ -2,7 +2,7 @@
   @description       : Toast Notifications
   @author            : Abhinav Singh
   @group             : 
-  @last modified on  : 11-29-2023
+  @last modified on  : 11-30-2023
   @last modified by  : Abhinav Singh
 -->
 <template>
@@ -38,6 +38,11 @@
           variant="brand"
           label="Show Notification"
           onclick={showNotification}
+        ></lightning-button>
+        <lightning-button
+          variant="brand"
+          label="Show Linked Notification"
+          onclick={showLinkedNotification}
         ></lightning-button>
       </p>
       <c-view-source source="lwc/toastMessagesComponent" slot="footer">
