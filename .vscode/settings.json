@@ -9,5 +9,5 @@
   "html.completion.attributeDefaultValue": "empty",
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.quoteStyle": "single",
-  "xml.preferences.quoteStyle": "single"
+  "xml.preferences.quoteStyle": "single",
 }
