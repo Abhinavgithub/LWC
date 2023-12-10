@@ -1,6 +1,7 @@
 import { LightningElement } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import ToastContainer from 'lightning/toastContainer';
+import Toast from 'lightning/toast';
 export default class ToastMessagesComponent extends LightningElement {
   title;
   message;
@@ -38,18 +39,31 @@ export default class ToastMessagesComponent extends LightningElement {
     this.dispatchEvent(evt);
   }
   showLinkedNotification() {
-    const linkedevt = new ShowToastEvent({
-      title: this.title,
-      variant: this.variant,
-      message: 'See it {0}!',
-      messageData: [
-        'Salesforce',
-        {
-          url: 'http://www.salesforce.com/',
-          label: 'here',
+    Toast.show(
+      {
+        label:
+          'This is a toast title with a {0} placeholder link that gets replaced by labelLinks',
+        labelLinks: [
+          {
+            url: 'https://www.lightningdesignsystem.com/components/toast/',
+            label: 'Toast link',
+          },
+        ],
+        message:
+          'This message has a {0} placeholder link that gets replaced by from messageLinks',
+        messageLinks: [
+          {
+            url: 'http://www.salesforce.com',
+            label: 'Salesforce link',
+          },
+        ],
+        mode: 'sticky',
+        variant: this.variant,
+        onclose: () => {
+          // Do something after the toast is closed
         },
-      ],
-    });
-    this.dispatchEvent(linkedevt);
+      },
+      this
+    );
   }
 }
