@@ -1,6 +1,6 @@
-import { LightningElement } from "lwc";
-import { ShowToastEvent } from "lightning/platformShowToastEvent";
-import ToastContainer from "lightning/toastContainer";
+import { LightningElement } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import ToastContainer from 'lightning/toastContainer';
 export default class ToastMessagesComponent extends LightningElement {
   title;
   message;
@@ -9,15 +9,15 @@ export default class ToastMessagesComponent extends LightningElement {
   connectedCallback() {
     const toastContainer = ToastContainer.instance();
     toastContainer.maxShown = 5;
-    toastContainer.toastPosition = "top-right";
+    toastContainer.toastPosition = 'top-right';
   }
 
   get options() {
     return [
-      { label: "Error", value: "Error" },
-      { label: "Warning", value: "Warning" },
-      { label: "Success", value: "Success" },
-      { label: "Info", value: "Info" }
+      { label: 'Error', value: 'Error' },
+      { label: 'Warning', value: 'Warning' },
+      { label: 'Success', value: 'Success' },
+      { label: 'Info', value: 'Info' },
     ];
   }
   titleChange(event) {
@@ -33,7 +33,7 @@ export default class ToastMessagesComponent extends LightningElement {
     const evt = new ShowToastEvent({
       title: this.title,
       message: this.message,
-      variant: this.variant
+      variant: this.variant,
     });
     this.dispatchEvent(evt);
   }
@@ -41,14 +41,14 @@ export default class ToastMessagesComponent extends LightningElement {
     const linkedevt = new ShowToastEvent({
       title: this.title,
       variant: this.variant,
-      message: "See it {0}!",
+      message: 'See it {0}!',
       messageData: [
-        "Salesforce",
+        'Salesforce',
         {
-          url: "http://www.salesforce.com/",
-          label: "here"
-        }
-      ]
+          url: 'http://www.salesforce.com/',
+          label: 'here',
+        },
+      ],
     });
     this.dispatchEvent(linkedevt);
   }
