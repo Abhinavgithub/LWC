@@ -1,0 +1,23 @@
+<!--
+  @description       : Get Random Dog pictures by invoking API
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 12-10-2023
+  @last modified by  : Abhinav Singh
+-->
+<template>
+  <lightning-card title="Dog API - Get Random Dog Pictures" variant="brand">
+    <lightning-layout horizontal-align="center" pull-to-boundary="small" vertical-align="start">
+      <div class="slds-var-p-around_small">
+        <lightning-button variant="success" label="Get Random Dog Picture" onclick={handleClick}></lightning-button>
+        <br><br>
+        <template if:true={imageReady}>
+          <img src={pictureUrl} height="350" width="350" />
+        </template>
+        <template if:true={loadingSpinner}>
+          <lightning-spinner alternative-text="Loading" variant="inverse" size="medium"></lightning-spinner>
+        </template>
+      </div>
+    </lightning-layout>
+  </lightning-card>
+</template>
