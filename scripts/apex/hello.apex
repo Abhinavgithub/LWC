@@ -22,3 +22,4 @@ List<Account> accList = TabAccountController.getAccountListByCountry(
 System.debug(accList);
 
 DogPictureCallout.getDogPicture();
+TMDBApi.getPopularMovies();
