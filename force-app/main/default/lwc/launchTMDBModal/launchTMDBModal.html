@@ -1,0 +1,21 @@
+<!--
+  @description       : LWC to launch the TMDB API Modal
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 12-13-2023
+  @last modified by  : Abhinav Singh
+-->
+<template>
+    <lightning-card icon-name="standard:video" variant="base">
+        <div slot="title">
+            TMDB API
+        </div>
+        <div slot="footer">
+            Click here to get more information from TMDB API
+        </div>
+        <div class="slds-align_absolute-center">
+            <lightning-button variant="brand" aria-haspopup="dialog" label="Get Movie Details"
+                onclick={handleClick}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,27 @@
+<!--
+  @description       : Create lightning Modal to call TMDB API 
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 12-13-2023
+  @last modified by  : Abhinav Singh
+-->
+<template>
+    <div class="slds-is-relative">
+        <template if:true={loadingSpinner}>
+            <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+        </template>
+    </div>
+    <template if:true={movie}>
+        <lightning-modal-header label={movie}></lightning-modal-header>
+        <lightning-modal-body>
+            <lightning-input type="text" label="Tagline" value={tagline} disabled></lightning-input>
+            <lightning-input type="text" label="Status" value={status} disabled></lightning-input>
+            <lightning-input type="number" label="Runtime(in minutes)" value={runtime} disabled></lightning-input>
+            <lightning-input type="number" formatter="currency" label="Revenue" value={revenue}
+                disabled></lightning-input>
+        </lightning-modal-body>
+        <lightning-modal-footer>
+            <lightning-button label="OK" onclick={handleOkay}></lightning-button>
+        </lightning-modal-footer>
+    </template>
+</template>

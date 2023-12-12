@@ -1,0 +1,24 @@
+<!-- sldsValidatorIgnore -->
+<!--
+  @description       : 
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 12-12-2023
+  @last modified by  : Abhinav Singh
+-->
+<template>
+  <lightning-quick-action-panel header="Contact Quick Edit">
+    <lightning-input label="Id" disabled value={recordId}></lightning-input>
+    <lightning-input type="email" data-field="Email" label="Email" value={email} class="slds-m-bottom_x-small">
+    </lightning-input>
+    <lightning-input type="text" data-field="LastName" label="Last Name" value={lastName} class="slds-m-bottom_x-small">
+    </lightning-input>
+    <lightning-input label="Description" data-field="Description" value={description} class="slds-m-bottom_x-small">
+    </lightning-input>
+    <div slot="footer">
+      <lightning-button variant="neutral" label="Cancel" onlick={handleClose}></lightning-button>
+      <lightning-button variant="brand" class="slds-m-left_x-small" label="Save" type="submit"
+        onclick={handleSubmit}></lightning-button>
+    </div>
+  </lightning-quick-action-panel>
+</template>
