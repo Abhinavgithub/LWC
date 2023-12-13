@@ -20,6 +20,7 @@ export default class LaunchTMDBModal extends LightningElement {
       size: 'medium',
       description: "Accessible description of modal's purpose",
       tmdbId: this.tmdbId,
+      rowId: this.recordId,
     });
     // if modal closed with X button, promise returns result = 'undefined'
     // if modal closed with OK button, promise returns result = 'okay'
