@@ -22,7 +22,7 @@ export default class GraphQLComponent extends LightningElement {
           }
         }
       }
-    }`,
+    `,
   })
   graphqlQueryResult({ data, errors }) {
     if (data) {
