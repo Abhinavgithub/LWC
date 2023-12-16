@@ -1,0 +1,34 @@
+<!--
+  @description       : graphQL with Parameters
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 12-16-2023
+  @last modified by  : Abhinav Singh
+-->
+<template>
+    <lightning-card icon-name="standard:account" variant="base">
+        <div slot="title">
+            GraphQL with Parameters
+        </div>
+        <div slot="actions">
+
+        </div>
+        <div slot="footer">
+        </div>
+        <div class="slds-var-m-horizontal_medium">
+            <lightning-combobox name="minAmount" label="Amount" value={minAmount} placeholder="Select a min amount"
+                options={minAmounts} onchange={handleChange}></lightning-combobox>
+
+            <template lwc:if={records}>
+                <template for:each={records} for:item="account">
+                    <div class="card-spacer" key={account.Id}>
+                        <lightning-card icon-name="standard:account">
+                            <h1 slot="title">{account.Name.value}</h1>
+                            {account.AnnualRevenue.displayValue}
+                        </lightning-card>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

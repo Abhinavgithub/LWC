@@ -9,7 +9,7 @@ export default class GraphQLComponent extends LightningElement {
       query AccountWithName {
         uiapi {
           query {
-            Account(first: 10) {
+            Account(first: 15) {
               edges {
                 node {
                   Id
