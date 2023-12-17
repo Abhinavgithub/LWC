@@ -5,6 +5,7 @@ export default class DelayGraphQLComponent extends LightningElement {
   initialValue = '';
   records;
   errors;
+  isLoading = false;
   displayInfo = {
     additionalFields: ['Industry'],
   };
@@ -14,7 +15,6 @@ export default class DelayGraphQLComponent extends LightningElement {
   };
   handleChange(event) {
     this.initialValue = event.detail.recordId;
-    console.log('selected Record =' + this.initialValue);
   }
   filter = {
     criteria: [
@@ -33,18 +33,17 @@ export default class DelayGraphQLComponent extends LightningElement {
     if (data) {
       this.records = data.uiapi.query.Contact.edges.map((edge) => edge.node);
     }
+    this.isLoading = false;
     this.errors = errors;
-    console.log('data' + data);
-    console.error('errors' + errors);
   }
   get variables() {
-    console.log('accountId', this.initialValue);
     return {
       accountId: this.initialValue,
     };
   }
   get accountQuery() {
     if (!this.initialValue) return undefined;
+    this.isLoading = true;
     return gql`
       query contactsOnAccount($accountId: ID!) {
         uiapi {
@@ -54,6 +53,12 @@ export default class DelayGraphQLComponent extends LightningElement {
                 node {
                   Id
                   Name {
+                    value
+                  }
+                  Email {
+                    value
+                  }
+                  Phone {
                     value
                   }
                 }

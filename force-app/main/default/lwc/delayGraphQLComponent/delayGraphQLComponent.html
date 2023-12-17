@@ -16,12 +16,16 @@
             <lightning-record-picker label="Accounts" placeholder="Search Accounts..." object-api-name="Account"
                 matching-info={matchingInfo} display-info={displayInfo} value={initialValue} filter={filter}
                 onchange={handleChange}></lightning-record-picker>
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="medium" variant="base"></lightning-spinner>
+            </template>
             <template lwc:if={records}>
                 <template for:each={records} for:item="contact">
                     <div class='card-spacer' key={contact.Id}>
-                        <lightning-card icon-name="standard:contact" variant="base">
+                        <lightning-card icon-name="standard:contact" title={contact.Name.value} variant="base">
                             <div>
-                                <h1 slot="title">{contact.Name.value}</h1>
+                                <h1>{contact.Email.value}</h1>
+                                <h1>{contact.Phone.value}</h1>
                             </div>
                         </lightning-card>
                     </div>
