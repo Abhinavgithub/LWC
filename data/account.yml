@@ -1,0 +1,6 @@
+- snowfakery_version: 3
+- object: Account
+  count: 10
+  fields:
+    name:
+      fake: Company
