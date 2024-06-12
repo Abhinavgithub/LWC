@@ -1,3 +1,23 @@
+<!--
+  @description       : search Movies Component HTML
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 06-13-2024
+  @last modified by  : Abhinav Singh
+-->
 <template>
-    
+    <lightning-card icon-name="standard:video" variant="base">
+        <div slot="title">
+            Search Movies
+        </div>
+        <div slot="footer">
+            Click here to get more information from TMDB API
+        </div>
+        <div>
+            <div class="slds-align_absolute-center">
+                <lightning-combobox name="Year" label="Year" placeholder="Choose Year" value={year}
+                    onchange={handleYearSelection} options={options}></lightning-combobox>
+            </div>
+        </div>
+    </lightning-card>
 </template>
