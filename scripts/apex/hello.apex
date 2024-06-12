@@ -23,7 +23,6 @@ System.debug(accList);
 
 DogPictureCallout.getDogPicture();
 TMDBApi.getPopularMovies();
-
 TMDBApi.getMovieDetails('238');
-
 TMDBApi.getTrendingMovies();
+TMDBApi.searchMovies('');

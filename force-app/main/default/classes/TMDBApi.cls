@@ -64,4 +64,30 @@ public with sharing class TMDBApi {
       throw new AuraHandledException(e.getMessage());
     }
   }
+
+  @AuraEnabled
+  public static string searchMovies(String primaryReleaseYear) {
+    try {
+      Http http = new Http();
+      HttpRequest req = new HttpRequest();
+      String endpoint;
+      primaryReleaseYear = '&primary_release_year=2024';
+      req.setEndpoint(
+        'callout:TMDBApi/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1' +
+          primaryReleaseYear +
+          '&sort_by=popularity.desc'
+      );
+      req.setMethod('GET');
+      HttpResponse response = http.send(req);
+      System.debug(response);
+      if (response.getStatusCode() == 200) {
+        System.debug(JSON.serializePretty(response.getBody()));
+        return response.getBody();
+      } else {
+        return null;
+      }
+    } catch (Exception e) {
+      throw new AuraHandledException(e.getMessage());
+    }
+  }
 }
