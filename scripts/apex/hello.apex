@@ -2,7 +2,7 @@
  * @description       :
  * @author            : Abhinav Singh
  * @group             :
- * @last modified on  : 12-12-2023
+ * @last modified on  : 06-13-2024
  * @last modified by  : Abhinav Singh
  **/
 // Use .apex files to store anonymous Apex.
@@ -25,3 +25,5 @@ DogPictureCallout.getDogPicture();
 TMDBApi.getPopularMovies();
 
 TMDBApi.getMovieDetails('238');
+
+TMDBApi.getTrendingMovies();
