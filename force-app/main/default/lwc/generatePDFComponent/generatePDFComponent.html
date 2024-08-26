@@ -1,0 +1,24 @@
+<!--
+  @description       : 
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 08-26-2024
+  @last modified by  : Abhinav Singh
+-->
+<template>
+  <lightning-card icon-name="standard:account" variant="base">
+    <div slot="title">
+      PDF and QR geenrator
+    </div>
+    <div>
+      <lightning-input class='qr' type="text" label="Enter some text" onchange={qrText}></lightning-input>
+      <lightning-button label="create Pdf" onclick={generatePdf}></lightning-button>
+      <lightning-button variant="base" label="Generate QR" onclick={generateQR}></lightning-button>
+    </div>
+    <div>
+      <template if:true={qrcodeInitialized}>
+        <img src={img_url}>
+      </template>
+    </div>
+  </lightning-card>
+</template>
