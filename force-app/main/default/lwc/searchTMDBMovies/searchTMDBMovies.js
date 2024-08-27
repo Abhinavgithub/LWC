@@ -41,6 +41,7 @@ const columns = [
   },
 ];
 export default class SearchTMDBMovies extends LightningElement {
+  yearOptions = [];
   movies;
   error;
   response;
@@ -66,6 +67,15 @@ export default class SearchTMDBMovies extends LightningElement {
   handleChange(event) {
     this.value = event.detail.value;
     console.log('Year change = ' + this.value);
+  }
+  connectedCallback() {
+    this.generateYearOptions();
+  }
+  generateYearOptions() {
+    const currentYear = new Date().getFullYear();
+    for (let i = currentYear; i >= 1900; i--) {
+      this.yearOptions.push({ label: i.toString(), value: i.toString() });
+    }
   }
 
   async handleClick() {
