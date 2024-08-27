@@ -2,7 +2,10 @@
 # More information: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_exclude_source.htm
 #
 
-package.xml
+# ignore below files
+scripts/apex/hello.apex
+manifest/package.xml
+scripts/soql/account.soql
 
 # LWC configuration files
 **/jsconfig.json
