@@ -7,8 +7,9 @@
 .sfdx/
 .localdevserver/
 deploy-options.json
-scripts/
-manifest/
+scripts/apex/hello.apex
+manifest/package.xml
+scripts/soql/account.soql
 
 # LWC VSCode autocomplete
 **/lwc/jsconfig.json
