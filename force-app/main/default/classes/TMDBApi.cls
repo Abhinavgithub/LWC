@@ -2,7 +2,7 @@
  * @description       : TMDB API callout
  * @author            : Abhinav Singh
  * @group             :
- * @last modified on  : 06-13-2024
+ * @last modified on  : 08-27-2024
  * @last modified by  : Abhinav Singh
  **/
 public with sharing class TMDBApi {
@@ -71,14 +71,14 @@ public with sharing class TMDBApi {
       Http http = new Http();
       HttpRequest req = new HttpRequest();
       String endpoint;
-      primaryReleaseYear = '&primary_release_year=2024';
       req.setEndpoint(
-        'callout:TMDBApi/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1' +
+        'callout:TMDBApi/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=' +
           primaryReleaseYear +
           '&sort_by=popularity.desc'
       );
       req.setMethod('GET');
       HttpResponse response = http.send(req);
+      System.debug(req.getEndpoint());
       System.debug(response);
       if (response.getStatusCode() == 200) {
         System.debug(JSON.serializePretty(response.getBody()));
@@ -87,6 +87,48 @@ public with sharing class TMDBApi {
         return null;
       }
     } catch (Exception e) {
+      throw new AuraHandledException(e.getMessage());
+    }
+  }
+
+  @AuraEnabled
+  public static void createTMDBRecord(TMDB__c tmdbRecord) {
+    try {
+      List<TMDB__c> listTMDB = new List<TMDB__c>();
+      if (tmdbRecord != null) {
+        if (
+          [
+            SELECT COUNT()
+            FROM TMDB__c
+            WHERE TMDB_Id__c = :tmdbRecord.TMDB_Id__c
+            WITH USER_MODE
+          ] > 0
+        ) {
+          tmdbRecord.Id = [
+            SELECT Id
+            FROM TMDB__c
+            WHERE TMDB_Id__c = :tmdbRecord.TMDB_Id__c
+            WITH USER_MODE
+          ]
+          .Id;
+          listTMDB.add(tmdbRecord);
+          SObjectAccessDecision decision = Security.stripInaccessible(
+            AccessType.UPDATABLE,
+            listTMDB
+          );
+          update decision.getRecords();
+        } else {
+          System.debug('Else block');
+          listTMDB.add(tmdbRecord);
+          SObjectAccessDecision decision = Security.stripInaccessible(
+            AccessType.CREATABLE,
+            listTMDB
+          );
+          insert decision.getRecords();
+        }
+      }
+    } catch (Exception e) {
+      System.debug(e.getMessage());
       throw new AuraHandledException(e.getMessage());
     }
   }

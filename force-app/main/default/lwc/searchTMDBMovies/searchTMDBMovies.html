@@ -1,8 +1,9 @@
+<!-- sldsValidatorIgnore -->
 <!--
   @description       : search Movies Component HTML
   @author            : Abhinav Singh
   @group             : 
-  @last modified on  : 06-13-2024
+  @last modified on  : 08-26-2024
   @last modified by  : Abhinav Singh
 -->
 <template>
@@ -15,9 +16,20 @@
         </div>
         <div>
             <div class="slds-align_absolute-center">
-                <lightning-combobox name="Year" label="Year" placeholder="Choose Year" value={year}
-                    onchange={handleYearSelection} options={options}></lightning-combobox>
+                <lightning-combobox name="Year" label="Year" placeholder="Choose Year" value={value}
+                    onchange={handleChange} options={options}></lightning-combobox>
             </div>
+            <br>
+            <div class="slds-align_absolute-center">
+                <p class="slds-var-m-bottom_small">
+                    <lightning-button variant="neutral" label="Go" onclick={handleClick}></lightning-button>
+                </p>
+            </div>
+        </div>
+        <br>
+        <div style="height: 300px;">
+            <lightning-datatable key-field="id" data={movieDetails} columns={columns} onrowaction={handleRowAction}>
+            </lightning-datatable>
         </div>
     </lightning-card>
 </template>
