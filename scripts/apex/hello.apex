@@ -2,7 +2,7 @@
  * @description       :
  * @author            : Abhinav Singh
  * @group             :
- * @last modified on  : 06-13-2024
+ * @last modified on  : 09-03-2024
  * @last modified by  : Abhinav Singh
  **/
 // Use .apex files to store anonymous Apex.
@@ -26,3 +26,5 @@ TMDBApi.getPopularMovies();
 TMDBApi.getMovieDetails('238');
 TMDBApi.getTrendingMovies();
 TMDBApi.searchMovies('');
+
+System.debug(TMDBApi.getTrendingMovies('day'));

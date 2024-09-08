@@ -2,7 +2,7 @@
  * @description       : TMDB API callout
  * @author            : Abhinav Singh
  * @group             :
- * @last modified on  : 08-27-2024
+ * @last modified on  : 09-08-2024
  * @last modified by  : Abhinav Singh
  **/
 public with sharing class TMDBApi {
@@ -47,11 +47,13 @@ public with sharing class TMDBApi {
   }
 
   @AuraEnabled
-  public static string getTrendingMovies() {
+  public static string getTrendingMovies(String type) {
     try {
       Http http = new Http();
       HttpRequest req = new HttpRequest();
-      req.setEndpoint('callout:TMDBApi/3/trending/movie/week?language=en-US');
+      req.setEndpoint(
+        'callout:TMDBApi/3/trending/movie/' + type + '?language=en-US'
+      );
       req.setMethod('GET');
       HttpResponse response = http.send(req);
       System.debug(response);

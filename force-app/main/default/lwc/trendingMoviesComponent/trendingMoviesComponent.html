@@ -1,0 +1,26 @@
+<!--
+  @description       : Trending Movies Component
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 09-08-2024
+  @last modified by  : Abhinav Singh
+-->
+<template>
+    <lightning-card icon-name="standard:video" variant="base">
+        <div slot="title">Trending Movies</div>
+        <div slot="footer">Click here to get more information from TMDB API</div>
+        <div>
+            <div class="slds-align_absolute-center">
+                <lightning-select name="tickets" label="Choose a trend?" value={value} options={options}
+                    onchange={handleChange} required></lightning-select>
+            </div>
+            <br />
+            <br />
+            <template lwc:if={value}>
+                <div class="slds-var-m-vertical_medium">
+                    <c-week-trending-component type={value}></c-week-trending-component>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

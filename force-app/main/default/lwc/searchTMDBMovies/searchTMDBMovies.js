@@ -6,6 +6,7 @@ import title from '@salesforce/schema/TMDB__c.Title__c';
 import rating from '@salesforce/schema/TMDB__c.Rating__c';
 import releasedate from '@salesforce/schema/TMDB__c.Release_Date__c';
 import tmdbid from '@salesforce/schema/TMDB__c.TMDB_Id__c';
+import tmdbUrl from '@salesforce/label/c.TMDBUrl';
 
 const actions = [{ label: 'Insert into SFDC', name: 'insert_movie' }];
 
@@ -48,6 +49,7 @@ export default class SearchTMDBMovies extends LightningElement {
   data;
   movieDetails;
   columns = columns;
+  posterURL = tmdbUrl;
   tmdbRecord = {
     Overview__c: overview,
     Title__c: title,
@@ -94,6 +96,7 @@ export default class SearchTMDBMovies extends LightningElement {
         overview: movie.overview,
         release_date: movie.release_date,
         vote_average: movie.vote_average.toFixed(1),
+        poster: this.posterURL + movie.poster_path,
       }));
       console.log(this.movieDetails);
     } catch (error) {

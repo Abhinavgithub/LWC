@@ -4,10 +4,12 @@
     "**/bower_components": true,
     "**/.sfdx": true
   },
-  "prettier.jsxSingleQuote": true,
-  "prettier.singleQuote": true,
-  "html.completion.attributeDefaultValue": "empty",
-  "javascript.preferences.quoteStyle": "single",
-  "typescript.preferences.quoteStyle": "single",
-  "xml.preferences.quoteStyle": "single",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[apex]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "notebook.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  }
 }
