@@ -1,5 +1,4 @@
 import { LightningElement } from 'lwc';
-import getTrendingMovies from '@salesforce/apex/TMDBApi.getTrendingMovies';
 
 export default class TrendingMoviesComponent extends LightningElement {
   value = '';
@@ -15,11 +14,5 @@ export default class TrendingMoviesComponent extends LightningElement {
 
   handleChange(event) {
     this.value = event.detail.value;
-  }
-  async handleClick() {
-    if (this.value != null) {
-      this.trending = await getTrendingMovies({ type: this.value });
-      console.log(this.trending);
-    }
   }
 }

@@ -1,5 +1,6 @@
 import { LightningElement, api } from 'lwc';
 import getTrendingMovies from '@salesforce/apex/TMDBApi.getTrendingMovies';
+import tmdbUrl from '@salesforce/label/c.TMDBUrl';
 const columns = [
   { label: 'Id', fieldName: 'id', type: 'text', initialWidth: 80 },
   {
@@ -7,12 +8,13 @@ const columns = [
     fieldName: 'original_title',
     type: 'text',
     wrapText: true,
+    initialWidth: 150,
   },
   {
     label: 'Description',
     fieldName: 'overview',
     wrapText: true,
-    initialWidth: 450,
+    initialWidth: 750,
   },
   {
     label: 'Rating',
@@ -35,6 +37,7 @@ export default class WeekTrendingComponent extends LightningElement {
   response;
   data;
   movieDetails;
+  posterURL = tmdbUrl;
   @api
   get type() {
     return this._type;
@@ -58,6 +61,7 @@ export default class WeekTrendingComponent extends LightningElement {
         overview: movie.overview,
         release_date: movie.release_date,
         vote_average: movie.vote_average.toFixed(1),
+        poster: this.posterURL + movie.poster_path,
       }));
     } catch (error) {
       this.error = error;

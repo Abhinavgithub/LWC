@@ -6,7 +6,7 @@
   @last modified by  : Abhinav Singh
 -->
 <template>
-    <lightning-card icon-name="standard:video" variant="base">
+    <lightning-card class="slds-var-p-around_medium" icon-name="standard:video" variant="base">
         <div slot="title">
             Trending this {type}
         </div>
@@ -17,6 +17,15 @@
                 <lightning-datatable key-field="id" data={movieDetails} columns={columns}>
                 </lightning-datatable>
             </div>
+        </div>
+        <div>
+            <lightning-carousel style="width: 300px; height: 200px; object-fit: cover;">
+                <template for:each={movieDetails} for:item="key">
+                    <lightning-carousel-image key={key} src={key.poster} header={key.original_title}
+                        description={key.release_date} alternative-text="This is a card" href="https://www.example.com">
+                    </lightning-carousel-image>
+                </template>
+            </lightning-carousel>
         </div>
     </lightning-card>
 </template>
