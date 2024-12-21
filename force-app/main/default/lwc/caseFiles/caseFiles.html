@@ -1,0 +1,36 @@
+<!--
+  @description       : Display case files and download selected files
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 12-21-2024
+  @last modified by  : Abhinav Singh
+-->
+<template>
+    <lightning-card icon-name="standard:case" variant="base">
+        <div slot="title">
+            Get Case Files
+        </div>
+        <div slot="actions">
+
+        </div>
+        <div slot="footer">
+        </div>
+        <div>
+            <p class="slds-var-p-around_small">
+                <lightning-button variant="brand" label="Get Selected Files" onclick={handleClick}></lightning-button>
+            </p>
+            <p class="slds-var-p-around_small">
+                <lightning-datatable key-field="id" data={cases} columns={caseColumns}
+                    onrowselection={getSelectedId}></lightning-datatable>
+            </p>
+            <p class="slds-var-p-around_small">
+                <lightning-button variant="brand" label="Download Selected Files"
+                    onclick={downloadFiles}></lightning-button>
+            </p>
+            <p class="slds-var-p-around_small">
+                <lightning-datatable key-field="id" data={files} columns={fileColumns}
+                    onrowselection={getSelectedFileIds}></lightning-datatable>
+            </p>
+        </div>
+    </lightning-card>
+</template>
