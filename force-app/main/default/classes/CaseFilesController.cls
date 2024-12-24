@@ -2,7 +2,7 @@
  * @description       : CaseFilesController is a controller class to get all the cases and files from the org.
  * @author            : Abhinav Singh
  * @group             :
- * @last modified on  : 12-21-2024
+ * @last modified on  : 12-23-2024
  * @last modified by  : Abhinav Singh
  **/
 public with sharing class CaseFilesController {
@@ -40,6 +40,21 @@ public with sharing class CaseFilesController {
       ];
       System.debug('files: ' + files);
       return files;
+    } catch (Exception e) {
+      throw new AuraHandledException(e.getMessage());
+    }
+  }
+  @AuraEnabled
+  public static List<User> getUsers(String searchKey) {
+    try {
+      List<User> users = [
+        SELECT Id, Name, Email, IsActive
+        FROM User
+        WHERE Id = :searchKey
+        WITH USER_MODE
+        ORDER BY Name
+      ];
+      return users;
     } catch (Exception e) {
       throw new AuraHandledException(e.getMessage());
     }

@@ -1,8 +1,10 @@
+import Id from '@salesforce/user/Id';
 import { LightningElement } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getCases from '@salesforce/apex/CaseFilesController.getCases';
 import getFiles from '@salesforce/apex/CaseFilesController.getFiles';
+import getUsers from '@salesforce/apex/CaseFilesController.getUsers';
 
 const caseColumns = [
   { label: 'CaseNumber', fieldName: 'CaseNumber', type: 'text' },
@@ -28,9 +30,11 @@ export default class CaseFiles extends NavigationMixin(LightningElement) {
   selectedRows;
   selectedIds = [];
   selectedFileIds = [];
+  userId = Id;
 
   connectedCallback() {
     this.loadCases();
+    this.loadUsers();
   }
 
   loadCases() {
@@ -122,5 +126,14 @@ export default class CaseFiles extends NavigationMixin(LightningElement) {
         })
       );
     }
+  }
+  loadUsers() {
+    getUsers({ searchKey: this.userId })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 }
