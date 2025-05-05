@@ -1,0 +1,10 @@
+.combobox-container {
+  display: flex;
+  /* align-items: center; */
+  align-items: center;
+  gap: 10px; /* Adjust the gap as needed */
+}
+.lightning-combobox,
+.lightning-button {
+  margin: 0;
+}

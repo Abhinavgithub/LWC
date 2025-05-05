@@ -1,0 +1,48 @@
+<!--
+  @description       : LWC component to download files from Salesforce based on file name and createdDate
+  @author            : Abhinav Singh
+  @group             : 
+  @last modified on  : 01-29-2025
+  @last modified by  : Abhinav Singh
+-->
+<template>
+    <lightning-card icon-name="standard:files" variant="base">
+        <div slot="title">
+            Get Files
+        </div>
+        <div slot="actions">
+            <lightning-button variant="brand" label="Refresh" onclick={handleRefresh}
+                icon-name="utility:refresh"></lightning-button>
+        </div>
+        <div slot="footer">
+            <p class="slds-text-body_small">This component is used to download files from Salesforce based on file name
+                and createdDate</p>
+        </div>
+        <div class='slds-grid slds-grid_vertical-align-start'>
+            <div class='slds-align_absolute-center slds-var-p-around_medium slds-col'>
+                <lightning-combobox name="files" label="Files" value={filevalue} placeholder="Select File Type"
+                    options={fileoptions} onchange={handleFileChange}></lightning-combobox>
+            </div>
+            <div class='slds-align_absolute-center slds-var-p-around_medium slds-col'>
+                <lightning-combobox name="Year" label="Year" placeholder="Choose Year" value={yearvalue}
+                    onchange={handleYearChange} options={yearOptions}></lightning-combobox>
+            </div>
+            <div class='slds-align_absolute-center slds-var-p-around_medium slds-col'>
+                <lightning-combobox name="Month" label="Month" placeholder="Choose Month" value={monthvalue}
+                    onchange={handleMonthChange} options={monthOptions}></lightning-combobox>
+            </div>
+        </div>
+        <div class='slds-var-p-around_medium'>
+            <lightning-button variant="brand" label="Get Files" onclick={handleClick}
+                icon-name="utility:search"></lightning-button>
+        </div>
+        <template lwc:if={displaytable}>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1">
+                    <lightning-datatable key-field="id" data={files} columns={columns}
+                        label="Files Data Table"></lightning-datatable>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+</template>

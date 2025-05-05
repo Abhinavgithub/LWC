@@ -2,7 +2,7 @@
  * @description       : CaseFilesController is a controller class to get all the cases and files from the org.
  * @author            : Abhinav Singh
  * @group             :
- * @last modified on  : 12-23-2024
+ * @last modified on  : 01-14-2025
  * @last modified by  : Abhinav Singh
  **/
 public with sharing class CaseFilesController {
@@ -55,6 +55,36 @@ public with sharing class CaseFilesController {
         ORDER BY Name
       ];
       return users;
+    } catch (Exception e) {
+      throw new AuraHandledException(e.getMessage());
+    }
+  }
+
+  /**
+   * @description       : Retrieves files by name based on the search key.
+   * @param fileName    : The search key to filter files by title.
+   * @param year        : The year to filter files by creation date.
+   * @return            : A JSON string of the list of ContentDocument records.
+   **/
+  @AuraEnabled
+  public static List<ContentDocument> getFilesByNameAndYear(
+    String fileName,
+    String year
+  ) {
+    try {
+      if (!Schema.sObjectType.ContentDocument.isAccessible()) {
+        throw new AuraHandledException('Access to ContentDocument is denied.');
+      }
+      List<ContentDocument> files = [
+        SELECT Id, Title, FileExtension
+        FROM ContentDocument
+        WHERE
+          Title LIKE :fileName + '%'
+          AND CALENDAR_YEAR(CreatedDate) = :Integer.valueOf(year)
+        WITH USER_MODE
+        ORDER BY CreatedDate DESC
+      ];
+      return files;
     } catch (Exception e) {
       throw new AuraHandledException(e.getMessage());
     }
